@@ -11914,7 +11914,7 @@ HOMER_(CONT&#39;D: I dunno.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -12250,7 +12250,7 @@ Default GPU Device: /gpu:0
 <span class="sd">    :return: Tuple (cell, initialize state)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Your basic LSTM cell</span>
-    <span class="n">lstm_</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">BasicLSTMCell</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+    <span class="n">lstm_</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">BasicLSTMCell</span><span class="p">(</span><span class="n">rnn_size</span><span class="p">)</span>
     
     <span class="c1"># Add dropout to the cell</span>
     <span class="n">drop_</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">rnn</span><span class="o">.</span><span class="n">DropoutWrapper</span><span class="p">(</span><span class="n">lstm_</span><span class="p">,</span> <span class="n">output_keep_prob</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -12616,7 +12616,7 @@ Tests Passed
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of Epochs</span>
-<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="c1"># Batch Size</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">512</span>
 <span class="c1"># RNN Size</span>
@@ -12770,206 +12770,46 @@ fully connected complete
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>69100
 512
-Epoch   0 Batch    0/8   train_loss = 8.824
-Epoch   2 Batch    4/8   train_loss = 6.323
-Epoch   5 Batch    0/8   train_loss = 6.106
-Epoch   7 Batch    4/8   train_loss = 6.020
-Epoch  10 Batch    0/8   train_loss = 5.928
-Epoch  12 Batch    4/8   train_loss = 5.840
-Epoch  15 Batch    0/8   train_loss = 5.750
-Epoch  17 Batch    4/8   train_loss = 5.647
-Epoch  20 Batch    0/8   train_loss = 5.545
-Epoch  22 Batch    4/8   train_loss = 5.460
-Epoch  25 Batch    0/8   train_loss = 5.350
-Epoch  27 Batch    4/8   train_loss = 5.246
-Epoch  30 Batch    0/8   train_loss = 5.138
-Epoch  32 Batch    4/8   train_loss = 5.014
-Epoch  35 Batch    0/8   train_loss = 4.904
-Epoch  37 Batch    4/8   train_loss = 4.794
-Epoch  40 Batch    0/8   train_loss = 4.679
-Epoch  42 Batch    4/8   train_loss = 4.579
-Epoch  45 Batch    0/8   train_loss = 4.471
-Epoch  47 Batch    4/8   train_loss = 4.372
-Epoch  50 Batch    0/8   train_loss = 4.260
-Epoch  52 Batch    4/8   train_loss = 4.163
-Epoch  55 Batch    0/8   train_loss = 4.067
-Epoch  57 Batch    4/8   train_loss = 3.977
-Epoch  60 Batch    0/8   train_loss = 3.884
-Epoch  62 Batch    4/8   train_loss = 3.794
-Epoch  65 Batch    0/8   train_loss = 3.681
-Epoch  67 Batch    4/8   train_loss = 3.598
-Epoch  70 Batch    0/8   train_loss = 3.499
-Epoch  72 Batch    4/8   train_loss = 3.421
-Epoch  75 Batch    0/8   train_loss = 3.335
-Epoch  77 Batch    4/8   train_loss = 3.241
-Epoch  80 Batch    0/8   train_loss = 3.153
-Epoch  82 Batch    4/8   train_loss = 3.077
-Epoch  85 Batch    0/8   train_loss = 2.975
-Epoch  87 Batch    4/8   train_loss = 2.898
-Epoch  90 Batch    0/8   train_loss = 2.819
-Epoch  92 Batch    4/8   train_loss = 2.755
-Epoch  95 Batch    0/8   train_loss = 2.676
-Epoch  97 Batch    4/8   train_loss = 2.587
-Epoch 100 Batch    0/8   train_loss = 2.532
-Epoch 102 Batch    4/8   train_loss = 2.464
-Epoch 105 Batch    0/8   train_loss = 2.387
-Epoch 107 Batch    4/8   train_loss = 2.332
-Epoch 110 Batch    0/8   train_loss = 2.282
-Epoch 112 Batch    4/8   train_loss = 2.214
-Epoch 115 Batch    0/8   train_loss = 2.161
-Epoch 117 Batch    4/8   train_loss = 2.100
-Epoch 120 Batch    0/8   train_loss = 2.055
-Epoch 122 Batch    4/8   train_loss = 2.010
-Epoch 125 Batch    0/8   train_loss = 1.951
-Epoch 127 Batch    4/8   train_loss = 1.915
-Epoch 130 Batch    0/8   train_loss = 1.853
-Epoch 132 Batch    4/8   train_loss = 1.824
-Epoch 135 Batch    0/8   train_loss = 1.776
-Epoch 137 Batch    4/8   train_loss = 1.746
-Epoch 140 Batch    0/8   train_loss = 1.692
-Epoch 142 Batch    4/8   train_loss = 1.659
-Epoch 145 Batch    0/8   train_loss = 1.634
-Epoch 147 Batch    4/8   train_loss = 1.582
-Epoch 150 Batch    0/8   train_loss = 1.558
-Epoch 152 Batch    4/8   train_loss = 1.538
-Epoch 155 Batch    0/8   train_loss = 1.487
-Epoch 157 Batch    4/8   train_loss = 1.474
-Epoch 160 Batch    0/8   train_loss = 1.435
-Epoch 162 Batch    4/8   train_loss = 1.408
-Epoch 165 Batch    0/8   train_loss = 1.384
-Epoch 167 Batch    4/8   train_loss = 1.367
-Epoch 170 Batch    0/8   train_loss = 1.347
-Epoch 172 Batch    4/8   train_loss = 1.316
-Epoch 175 Batch    0/8   train_loss = 1.292
-Epoch 177 Batch    4/8   train_loss = 1.285
-Epoch 180 Batch    0/8   train_loss = 1.239
-Epoch 182 Batch    4/8   train_loss = 1.247
-Epoch 185 Batch    0/8   train_loss = 1.215
-Epoch 187 Batch    4/8   train_loss = 1.198
-Epoch 190 Batch    0/8   train_loss = 1.187
-Epoch 192 Batch    4/8   train_loss = 1.190
-Epoch 195 Batch    0/8   train_loss = 1.147
-Epoch 197 Batch    4/8   train_loss = 1.140
-Epoch 200 Batch    0/8   train_loss = 1.134
-Epoch 202 Batch    4/8   train_loss = 1.104
-Epoch 205 Batch    0/8   train_loss = 1.105
-Epoch 207 Batch    4/8   train_loss = 1.096
-Epoch 210 Batch    0/8   train_loss = 1.073
-Epoch 212 Batch    4/8   train_loss = 1.060
-Epoch 215 Batch    0/8   train_loss = 1.053
-Epoch 217 Batch    4/8   train_loss = 1.060
-Epoch 220 Batch    0/8   train_loss = 1.040
-Epoch 222 Batch    4/8   train_loss = 1.027
-Epoch 225 Batch    0/8   train_loss = 1.020
-Epoch 227 Batch    4/8   train_loss = 1.015
-Epoch 230 Batch    0/8   train_loss = 0.997
-Epoch 232 Batch    4/8   train_loss = 0.993
-Epoch 235 Batch    0/8   train_loss = 0.985
-Epoch 237 Batch    4/8   train_loss = 0.987
-Epoch 240 Batch    0/8   train_loss = 0.960
-Epoch 242 Batch    4/8   train_loss = 0.967
-Epoch 245 Batch    0/8   train_loss = 0.945
-Epoch 247 Batch    4/8   train_loss = 0.939
-Epoch 250 Batch    0/8   train_loss = 0.941
-Epoch 252 Batch    4/8   train_loss = 0.922
-Epoch 255 Batch    0/8   train_loss = 0.917
-Epoch 257 Batch    4/8   train_loss = 0.930
-Epoch 260 Batch    0/8   train_loss = 0.907
-Epoch 262 Batch    4/8   train_loss = 0.903
-Epoch 265 Batch    0/8   train_loss = 0.893
-Epoch 267 Batch    4/8   train_loss = 0.893
-Epoch 270 Batch    0/8   train_loss = 0.889
-Epoch 272 Batch    4/8   train_loss = 0.883
-Epoch 275 Batch    0/8   train_loss = 0.874
-Epoch 277 Batch    4/8   train_loss = 0.871
-Epoch 280 Batch    0/8   train_loss = 0.872
-Epoch 282 Batch    4/8   train_loss = 0.870
-Epoch 285 Batch    0/8   train_loss = 0.860
-Epoch 287 Batch    4/8   train_loss = 0.868
-Epoch 290 Batch    0/8   train_loss = 0.860
-Epoch 292 Batch    4/8   train_loss = 0.859
-Epoch 295 Batch    0/8   train_loss = 0.845
-Epoch 297 Batch    4/8   train_loss = 0.848
-Epoch 300 Batch    0/8   train_loss = 0.835
-Epoch 302 Batch    4/8   train_loss = 0.846
-Epoch 305 Batch    0/8   train_loss = 0.846
-Epoch 307 Batch    4/8   train_loss = 0.833
-Epoch 310 Batch    0/8   train_loss = 0.836
-Epoch 312 Batch    4/8   train_loss = 0.827
-Epoch 315 Batch    0/8   train_loss = 0.829
-Epoch 317 Batch    4/8   train_loss = 0.821
-Epoch 320 Batch    0/8   train_loss = 0.819
-Epoch 322 Batch    4/8   train_loss = 0.814
-Epoch 325 Batch    0/8   train_loss = 0.822
-Epoch 327 Batch    4/8   train_loss = 0.813
-Epoch 330 Batch    0/8   train_loss = 0.810
-Epoch 332 Batch    4/8   train_loss = 0.815
-Epoch 335 Batch    0/8   train_loss = 0.803
-Epoch 337 Batch    4/8   train_loss = 0.799
-Epoch 340 Batch    0/8   train_loss = 0.789
-Epoch 342 Batch    4/8   train_loss = 0.801
-Epoch 345 Batch    0/8   train_loss = 0.796
-Epoch 347 Batch    4/8   train_loss = 0.784
-Epoch 350 Batch    0/8   train_loss = 0.787
-Epoch 352 Batch    4/8   train_loss = 0.789
-Epoch 355 Batch    0/8   train_loss = 0.786
-Epoch 357 Batch    4/8   train_loss = 0.778
-Epoch 360 Batch    0/8   train_loss = 0.780
-Epoch 362 Batch    4/8   train_loss = 0.779
-Epoch 365 Batch    0/8   train_loss = 0.777
-Epoch 367 Batch    4/8   train_loss = 0.781
-Epoch 370 Batch    0/8   train_loss = 0.769
-Epoch 372 Batch    4/8   train_loss = 0.765
-Epoch 375 Batch    0/8   train_loss = 0.774
-Epoch 377 Batch    4/8   train_loss = 0.780
-Epoch 380 Batch    0/8   train_loss = 0.762
-Epoch 382 Batch    4/8   train_loss = 0.767
-Epoch 385 Batch    0/8   train_loss = 0.757
-Epoch 387 Batch    4/8   train_loss = 0.764
-Epoch 390 Batch    0/8   train_loss = 0.760
-Epoch 392 Batch    4/8   train_loss = 0.754
-Epoch 395 Batch    0/8   train_loss = 0.749
-Epoch 397 Batch    4/8   train_loss = 0.753
-Epoch 400 Batch    0/8   train_loss = 0.750
-Epoch 402 Batch    4/8   train_loss = 0.749
-Epoch 405 Batch    0/8   train_loss = 0.752
-Epoch 407 Batch    4/8   train_loss = 0.746
-Epoch 410 Batch    0/8   train_loss = 0.736
-Epoch 412 Batch    4/8   train_loss = 0.752
-Epoch 415 Batch    0/8   train_loss = 0.735
-Epoch 417 Batch    4/8   train_loss = 0.741
-Epoch 420 Batch    0/8   train_loss = 0.749
-Epoch 422 Batch    4/8   train_loss = 0.747
-Epoch 425 Batch    0/8   train_loss = 0.748
-Epoch 427 Batch    4/8   train_loss = 0.741
-Epoch 430 Batch    0/8   train_loss = 0.733
-Epoch 432 Batch    4/8   train_loss = 0.735
-Epoch 435 Batch    0/8   train_loss = 0.739
-Epoch 437 Batch    4/8   train_loss = 0.740
-Epoch 440 Batch    0/8   train_loss = 0.732
-Epoch 442 Batch    4/8   train_loss = 0.739
-Epoch 445 Batch    0/8   train_loss = 0.729
-Epoch 447 Batch    4/8   train_loss = 0.733
-Epoch 450 Batch    0/8   train_loss = 0.720
-Epoch 452 Batch    4/8   train_loss = 0.724
-Epoch 455 Batch    0/8   train_loss = 0.732
-Epoch 457 Batch    4/8   train_loss = 0.727
-Epoch 460 Batch    0/8   train_loss = 0.721
-Epoch 462 Batch    4/8   train_loss = 0.726
-Epoch 465 Batch    0/8   train_loss = 0.718
-Epoch 467 Batch    4/8   train_loss = 0.721
-Epoch 470 Batch    0/8   train_loss = 0.720
-Epoch 472 Batch    4/8   train_loss = 0.720
-Epoch 475 Batch    0/8   train_loss = 0.716
-Epoch 477 Batch    4/8   train_loss = 0.719
-Epoch 480 Batch    0/8   train_loss = 0.721
-Epoch 482 Batch    4/8   train_loss = 0.720
-Epoch 485 Batch    0/8   train_loss = 0.706
-Epoch 487 Batch    4/8   train_loss = 0.715
-Epoch 490 Batch    0/8   train_loss = 0.713
-Epoch 492 Batch    4/8   train_loss = 0.714
-Epoch 495 Batch    0/8   train_loss = 0.710
-Epoch 497 Batch    4/8   train_loss = 0.708
+Epoch   0 Batch    0/8   train_loss = 8.819
+Epoch   2 Batch    4/8   train_loss = 5.655
+Epoch   5 Batch    0/8   train_loss = 5.069
+Epoch   7 Batch    4/8   train_loss = 4.525
+Epoch  10 Batch    0/8   train_loss = 3.900
+Epoch  12 Batch    4/8   train_loss = 3.178
+Epoch  15 Batch    0/8   train_loss = 2.513
+Epoch  17 Batch    4/8   train_loss = 1.947
+Epoch  20 Batch    0/8   train_loss = 1.506
+Epoch  22 Batch    4/8   train_loss = 1.218
+Epoch  25 Batch    0/8   train_loss = 1.033
+Epoch  27 Batch    4/8   train_loss = 0.917
+Epoch  30 Batch    0/8   train_loss = 0.856
+Epoch  32 Batch    4/8   train_loss = 0.812
+Epoch  35 Batch    0/8   train_loss = 0.779
+Epoch  37 Batch    4/8   train_loss = 0.762
+Epoch  40 Batch    0/8   train_loss = 0.741
+Epoch  42 Batch    4/8   train_loss = 0.730
+Epoch  45 Batch    0/8   train_loss = 0.719
+Epoch  47 Batch    4/8   train_loss = 0.724
+Epoch  50 Batch    0/8   train_loss = 0.712
+Epoch  52 Batch    4/8   train_loss = 0.709
+Epoch  55 Batch    0/8   train_loss = 0.704
+Epoch  57 Batch    4/8   train_loss = 0.705
+Epoch  60 Batch    0/8   train_loss = 0.691
+Epoch  62 Batch    4/8   train_loss = 0.698
+Epoch  65 Batch    0/8   train_loss = 0.693
+Epoch  67 Batch    4/8   train_loss = 0.690
+Epoch  70 Batch    0/8   train_loss = 0.685
+Epoch  72 Batch    4/8   train_loss = 0.694
+Epoch  75 Batch    0/8   train_loss = 0.684
+Epoch  77 Batch    4/8   train_loss = 0.687
+Epoch  80 Batch    0/8   train_loss = 0.678
+Epoch  82 Batch    4/8   train_loss = 0.680
+Epoch  85 Batch    0/8   train_loss = 0.677
+Epoch  87 Batch    4/8   train_loss = 0.677
+Epoch  90 Batch    0/8   train_loss = 0.670
+Epoch  92 Batch    4/8   train_loss = 0.678
+Epoch  95 Batch    0/8   train_loss = 0.670
+Epoch  97 Batch    4/8   train_loss = 0.677
 Model Trained and Saved
 </pre>
 </div>
@@ -13228,18 +13068,20 @@ Model Trained and Saved
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>moe_szyslak:(into phone) gotcha ya down for forty bucks. good luck your eminence. 70 tonight what have me! it can&#39;t home who kind.
-barney_gumble:(to sir.
-carl_carlson: no go home and couldn&#39;t eat is and look every afternoon! grampa_simpson: then you tinkle.. i need is us) take?
-homer_simpson: homer,
-moe_szyslak: wait, bad /, is from my&#34; i still alive.
-man:(moe) hey, no was you! over to ya has got a landfill on
-homer_simpson: oh! from hey too, hello it is
-harv: now, there goes, moe.
-barney_gumble: okay.
-homer_simpson: sure, invisible gorgeous what, bad puff!(whee
-barney-shaped_form: i like my ladies back!
-grampa_simpson: you&#39;re trying to pull two wire.&#34; me tonight is so maybe funny. there&#39;s to those far on an first can back. here you know! and way in cough you mouth but good looking without friend an moron with an boxer, all springfield don&#39;t get low, we&#39;ve seconds
+<pre>moe_szyslak:(into phone) moe&#39;s tavern. where the elite meet to drink.
+what now?, homer is?(laughs) listen you go, there?
+homer_simpson:(grand) hey, i need a little had to moe.
+homer_simpson: that could have you ever party?
+moe_szyslak: hey, i need some smell from right. but. me is you&#39;ll have. this one if we want to the designated driver!
+homer_simpson:(aside) i&#39;ll need a dump.
+homer_simpson:(shaking hands) principal seymour skinner.
+moe_szyslak:(into phone) moe&#39;s tavern. moe speaking.
+bart_simpson:(into phone) ah, you&#39;re a good... moe.
+homer_simpson:(ashamed) oh, we were.
+moe_szyslak: what&#39;s the matter, homer? the depressin&#39; effects effects of ya.
+moe_szyslak:(know) hey, moe, you might it go.
+moe_szyslak: ah, i get a hold of you, i&#39;m gonna use your for a time and paint.
+moe_szyslak: ah, a little girl you&#39;re(
 </pre>
 </div>
 </div>
